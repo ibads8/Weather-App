@@ -1,13 +1,13 @@
-let currentDate = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+//let currentDate = new Date();
+//let days = [
+// "Sunday",
+// "Monday",
+// "Tuesday",
+// "Wednesday",
+// "Thursday",
+// "Friday",
+// "Saturday",
+//];
 //let currentDay = days[currentDate.getDay()];
 //let currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
 //let h4 = document.querySelector("h4");
