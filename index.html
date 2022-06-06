@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>WeatherApp</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -16,63 +16,65 @@
   </head>
   <body>
     <div class="container">
-      <h1>Weather</h1>
-      <br />
-      <form id="search-form">
-        <input type="text" placeholder="Enter a city" id="search-input" />
-        <input type="submit" value="Go" id="search-button" />
-      </form>
-      <form id="current-city">
-        <input type="submit" value="Current city" id="current-city" />
-      </form>
-      <br />
-      <div class="row">
-        <div class="col-6" id="city"><h2></h2></div>
-        <div class="col-6">
-          <a href="#" id="celcius-temp">
-            <a href="#" id="fahrenheit-temp"> | F </a>
-          </a>
+      <div class="weather-app">
+        <h1>Weather</h1>
+        <br />
+        <form id="search-form">
+          <input type="text" placeholder="Enter a city" id="search-input" />
+          <input type="submit" value="Go" id="search-button" />
+        </form>
+        <form id="current-city">
+          <input type="submit" value="Current city" id="current-city" />
+        </form>
+        <br />
+        <div class="row">
+          <div class="col-6" id="city"><h2></h2></div>
+          <div class="col-6">
+            <a href="#" id="celcius-temp">
+              <a href="#" id="fahrenheit-temp"> | F </a>
+            </a>
+          </div>
+          <div class="col-6"><h4></h4></div>
+          <div class="col-6"><h3></h3></div>
+          <div class="col-6" id="description"></div>
+          <div class="col-6">Feels like 25° C</div>
         </div>
-        <div class="col-6"><h4></h4></div>
-        <div class="col-6"><h3></h3></div>
-        <div class="col-6" id="description"></div>
-        <div class="col-6">Feels like 25° C</div>
-      </div>
 
-      <p>30° C | 15° C</p>
+        <p>30° C | 15° C</p>
 
-      <div class="row">
-        <div class="col">Sunrise: 5:21AM</div>
-        <div class="col">Sunset: 6:09PM</div>
-      </div>
-      <br />
-      <h2>7-Day Forecast</h2>
-      <div class="row">
-        <div class="col day">Today</div>
-        <div class="col day">Mon</div>
-        <div class="col day">Tue</div>
-        <div class="col day">Wed</div>
-        <div class="col day">Thu</div>
-        <div class="col day">Fri</div>
-        <div class="col day">Sat</div>
-      </div>
-      <div class="row">
-        <div class="col">☀️</div>
-        <div class="col">🌦️</div>
-        <div class="col">🌧️</div>
-        <div class="col">☁️</div>
-        <div class="col">🌥️</div>
-        <div class="col">🌤️</div>
-        <div class="col">🌞</div>
-      </div>
-      <div class="row">
-        <div class="col">30° | 15°</div>
-        <div class="col">26° | 14°</div>
-        <div class="col">29° | 16°</div>
-        <div class="col">31° | 15°</div>
-        <div class="col">29° | 14°</div>
-        <div class="col">28° | 14°</div>
-        <div class="col">29° | 14°</div>
+        <div class="row">
+          <div class="col">Sunrise: 5:21AM</div>
+          <div class="col">Sunset: 6:09PM</div>
+        </div>
+        <br />
+        <h2>7-Day Forecast</h2>
+        <div class="row">
+          <div class="col day">Today</div>
+          <div class="col day">Mon</div>
+          <div class="col day">Tue</div>
+          <div class="col day">Wed</div>
+          <div class="col day">Thu</div>
+          <div class="col day">Fri</div>
+          <div class="col day">Sat</div>
+        </div>
+        <div class="row">
+          <div class="col">☀️</div>
+          <div class="col">🌦️</div>
+          <div class="col">🌧️</div>
+          <div class="col">☁️</div>
+          <div class="col">🌥️</div>
+          <div class="col">🌤️</div>
+          <div class="col">🌞</div>
+        </div>
+        <div class="row">
+          <div class="col">30° | 15°</div>
+          <div class="col">26° | 14°</div>
+          <div class="col">29° | 16°</div>
+          <div class="col">31° | 15°</div>
+          <div class="col">29° | 14°</div>
+          <div class="col">28° | 14°</div>
+          <div class="col">29° | 14°</div>
+        </div>
       </div>
     </div>
     <span class="urls"
