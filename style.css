@@ -12,8 +12,10 @@ h2 {
 }
 
 .urls {
+  display: inline-block;
   text-align: center;
-  margin: 20px 30px;
+  font-size: small;
+  margin: 20px 500px;
 }
 
 .weather-app {
