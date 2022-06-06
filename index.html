@@ -20,11 +20,34 @@
         <h1>Weather</h1>
         <br />
         <form id="search-form">
-          <input type="text" placeholder="Enter a city" id="search-input" />
-          <input type="submit" value="Go" id="search-button" />
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="text"
+                placeholder="Enter a city"
+                id="search-input"
+                autofocus="on"
+                autocomplete="off"
+                class="form-control shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                id="search-button"
+                class="btn btn-primary"
+              />
+            </div>
+          </div>
         </form>
         <form id="current-city">
-          <input type="submit" value="Current city" id="current-city" />
+          <input
+            type="submit"
+            value="Current city"
+            id="current-city"
+            class="btn btn-secondary"
+          />
         </form>
         <br />
         <div class="row">
@@ -37,14 +60,14 @@
           <div class="col-6"><h4></h4></div>
           <div class="col-6"><h3></h3></div>
           <div class="col-6" id="description"></div>
-          <div class="col-6">Feels like 25° C</div>
         </div>
 
         <p>30° C | 15° C</p>
 
         <div class="row">
-          <div class="col">Sunrise: 5:21AM</div>
-          <div class="col">Sunset: 6:09PM</div>
+          <div class="col-12">Precipitation: 0%</div>
+          <div class="col-12">Humidity: 50%</div>
+          <div class="col-12">Wind: 5km/h</div>
         </div>
         <br />
         <h2>7-Day Forecast</h2>
@@ -86,6 +109,6 @@
         >hosted on Netlify</a
       ></span
     >
-    <script src="src/index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

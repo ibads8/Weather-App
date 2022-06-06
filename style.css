@@ -17,9 +17,13 @@ h2 {
 }
 
 .weather-app {
-  border: 1px solid gray;
+  border: 1px solid #d0dfee;
   padding: 15px;
   margin: 20px auto;
   border-radius: 10px;
   max-width: 600px;
+}
+
+.btn-secondary {
+  margin: 10px auto;
 }
