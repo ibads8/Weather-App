@@ -36,10 +36,6 @@ li {
   max-width: 600px;
 }
 
-.btn-secondary {
-  margin: 10px auto;
-}
-
 #description {
   text-transform: capitalize;
 }

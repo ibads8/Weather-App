@@ -109,3 +109,5 @@ function push() {
 
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("click", push);
+
+searchCity("Washington");
