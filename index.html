@@ -5,113 +5,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <title>WeatherApp</title>
+    <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
+    <title>WeatherApp</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <h1>Weather</h1>
-        <br />
-        <form id="search-form">
+      <div class="app-wrapper">
+        <div class="weather-app">
+          <h1>Weather</h1>
+          <br />
+          <form id="search-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  placeholder="Enter a city"
+                  id="search-input"
+                  autofocus="on"
+                  autocomplete="off"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  id="search-button"
+                  class="btn btn-primary"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Current city"
+                  id="current-city"
+                  class="btn btn-secondary"
+                />
+              </div>
+            </div>
+          </form>
+          <br />
+          <h2 id="city"></h2>
           <div class="row">
             <div class="col-6">
-              <input
-                type="text"
-                placeholder="Enter a city"
-                id="search-input"
-                autofocus="on"
-                autocomplete="off"
-                class="form-control shadow-sm"
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
+                alt="weather icon"
+                id="icon"
+                class="float-left"
               />
+              <span class="temperature" id="temp"></span
+              ><span class="units">
+                <a href="#" id="celsius-link">°C |</a>
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+              <ul>
+                <li id="date"></li>
+                <li id="description"></li>
+              </ul>
             </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                id="search-button"
-                class="btn btn-primary"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Current city"
-                id="current-city"
-                class="btn btn-secondary"
-              />
-            </div>
-          </div>
-        </form>
-        <br />
-        <h2 id="city"></h2>
-        <div class="row">
-          <div class="col-6">
-            <span class="temperature" id="temp"></span>
-            <span class="units">
-              <a href="#" id="celsius-link">°C |</a>
-              <a href="#" id="fahrenheit-link">°F</a>
-            </span>
-            <ul>
-              <li id="date"></li>
-              <li id="description"></li>
-            </ul>
-          </div>
 
-          <div class="col-6">
-            <ul>
-              <li>Precipitation: 0%</li>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> km/h</li>
-            </ul>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <h3>7-Day Forecast</h3>
+          <div class="row">
+            <div class="col day">Today</div>
+            <div class="col day">Mon</div>
+            <div class="col day">Tue</div>
+            <div class="col day">Wed</div>
+            <div class="col day">Thu</div>
+            <div class="col day">Fri</div>
+            <div class="col day">Sat</div>
+          </div>
+          <div class="row">
+            <div class="col">☀️</div>
+            <div class="col">🌦️</div>
+            <div class="col">🌧️</div>
+            <div class="col">☁️</div>
+            <div class="col">🌥️</div>
+            <div class="col">🌤️</div>
+            <div class="col">🌞</div>
+          </div>
+          <div class="row">
+            <div class="col">30° | 15°</div>
+            <div class="col">26° | 14°</div>
+            <div class="col">29° | 16°</div>
+            <div class="col">31° | 15°</div>
+            <div class="col">29° | 14°</div>
+            <div class="col">28° | 14°</div>
+            <div class="col">29° | 14°</div>
           </div>
         </div>
-        <br />
-        <h3>7-Day Forecast</h3>
-        <div class="row">
-          <div class="col day">Today</div>
-          <div class="col day">Mon</div>
-          <div class="col day">Tue</div>
-          <div class="col day">Wed</div>
-          <div class="col day">Thu</div>
-          <div class="col day">Fri</div>
-          <div class="col day">Sat</div>
-        </div>
-        <div class="row">
-          <div class="col">☀️</div>
-          <div class="col">🌦️</div>
-          <div class="col">🌧️</div>
-          <div class="col">☁️</div>
-          <div class="col">🌥️</div>
-          <div class="col">🌤️</div>
-          <div class="col">🌞</div>
-        </div>
-        <div class="row">
-          <div class="col">30° | 15°</div>
-          <div class="col">26° | 14°</div>
-          <div class="col">29° | 16°</div>
-          <div class="col">31° | 15°</div>
-          <div class="col">29° | 14°</div>
-          <div class="col">28° | 14°</div>
-          <div class="col">29° | 14°</div>
-        </div>
+        <span class="urls"
+          >This project was coded by Eu and is
+          <a href="https://github.com/ibads8/Weather-App"
+            >open-sourced on GitHub</a
+          >
+          and
+          <a
+            href="https://app.netlify.com/sites/magical-parfait-bcdea2/deploys/628d8366bd28750cfc0774bf"
+            >hosted on Netlify</a
+          >
+        </span>
       </div>
     </div>
-    <span class="urls"
-      >This project was coded by Eu and is
-      <a href="https://github.com/ibads8/Weather-App">open-sourced on GitHub</a>
-      and
-      <a
-        href="https://app.netlify.com/sites/magical-parfait-bcdea2/deploys/628d8366bd28750cfc0774bf"
-        >hosted on Netlify</a
-      >
-    </span>
     <script src="index.js"></script>
   </body>
 </html>
