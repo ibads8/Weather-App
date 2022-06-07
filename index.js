@@ -24,12 +24,15 @@ let date = document.querySelector("#date");
 date.innerHTML = `${currentDay} ${currentTime}`;
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let celsiusTemperature = document.querySelector("#temp");
-  celsiusTemperature.innerHTML = `${temperature}`;
+  let temperatureElement = document.querySelector("#temp");
   let city = document.querySelector("h2");
-  city.innerHTML = response.data.name;
   let description = document.querySelector("#description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+
+  celciusTemperature = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+  city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
   let icon = document.querySelector("#icon");
   icon.setAttribute(
@@ -37,10 +40,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function searchCity(city) {
@@ -56,48 +57,22 @@ function enterCity(event) {
   let city = document.querySelector("h2");
   city.innerHTML = `${searchInput.value}`;
   searchCity(searchInput.value);
-  //let city = searchInput.value;
 }
+
+let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", enterCity);
 
-//
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
-//week4
-//let city = document.querySelector("#city");
-//id="celcius-temp"
-//function showCelcius() {
-// let a = document.querySelector("a");
-//  a.innerHTML = "28 C";
-//}
-//let celsiusTemperature = document.querySelector("#celcius-temp");
-//celsiusTemperature.addEventListener("click", showCelcius);
-//function showFah() {
-// let a = document.querySelector("a");
-//a.innerHTML = "68";
-//}
-//let fahrenheitTemperature = document.querySelector("#fahrenheit-temp");
-//fahrenheitTemperature.addEventListener("click", showFah);
-
-///agregar despues
-//function convertToFahrenheit(event) {
-// event.preventDefault();
-//  let temperatureElement = document.querySelector("#temp");
-// temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-//}
-
-// function convertToCelsius(event) {
-// event.preventDefault();
-///  let temperatureElement = document.querySelector("#temperature");
-// temperatureElement.innerHTML = 19;
-//}
-
-//let fahrenheitTemperature = document.querySelector("#fahrenheit-link");
-//fahrenheitTemperature.addEventListener("click", convertToFahrenheit);
-
-///let celsiusTemperature = document.querySelector("#celsius-link");
-///celsiusTemperature.addEventListener("click", convertToCelsius);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 //week5
 //Debo llamar a la api dentro de la funcion porque solo ahi existen la latitud y la longitud, ya que las obtengo de la position
