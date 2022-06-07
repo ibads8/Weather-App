@@ -1,4 +1,13 @@
 let currentDate = new Date();
+let hours = currentDate.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+let minutes = currentDate.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+
 let days = [
   "Sunday",
   "Monday",
@@ -8,16 +17,16 @@ let days = [
   "Friday",
   "Saturday",
 ];
-//let currentDay = days[currentDate.getDay()];
-//let currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
-//let h4 = document.querySelector("h4");
-//h4.innerHTML = `${currentDay} ${currentTime}`;
+
+let currentDay = days[currentDate.getDay()];
+let currentTime = `${hours}:${minutes}`;
+let date = document.querySelector("#date");
+date.innerHTML = `${currentDay} ${currentTime}`;
 
 function showTemperature(response) {
-  console.log(response);
   let temperature = Math.round(response.data.main.temp);
-  let celsiusTemperature = document.querySelector("#celcius-temp");
-  celsiusTemperature.innerHTML = `${temperature}°C`;
+  let celsiusTemperature = document.querySelector("#temp");
+  celsiusTemperature.innerHTML = `${temperature}`;
   let city = document.querySelector("h2");
   city.innerHTML = response.data.name;
   let description = document.querySelector("#description");
@@ -60,8 +69,27 @@ form.addEventListener("submit", enterCity);
 //let fahrenheitTemperature = document.querySelector("#fahrenheit-temp");
 //fahrenheitTemperature.addEventListener("click", showFah);
 
-//week5
+///agregar despues
+//function convertToFahrenheit(event) {
+// event.preventDefault();
+//  let temperatureElement = document.querySelector("#temp");
+// temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+//}
 
+// function convertToCelsius(event) {
+// event.preventDefault();
+///  let temperatureElement = document.querySelector("#temperature");
+// temperatureElement.innerHTML = 19;
+//}
+
+//let fahrenheitTemperature = document.querySelector("#fahrenheit-link");
+//fahrenheitTemperature.addEventListener("click", convertToFahrenheit);
+
+///let celsiusTemperature = document.querySelector("#celsius-link");
+///celsiusTemperature.addEventListener("click", convertToCelsius);
+
+//week5
+//Debo llamar a la api dentro de la funcion porque solo ahi existen la latitud y la longitud, ya que las obtengo de la position
 function showPosition(position) {
   let lat = `${position.coords.latitude}`;
   let lon = `${position.coords.longitude}`;

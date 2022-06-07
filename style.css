@@ -11,6 +11,16 @@ h2 {
   opacity: 0.7;
 }
 
+ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  font-size: 16px;
+  list-style: none;
+}
+
 .urls {
   display: inline-block;
   text-align: center;
@@ -28,4 +38,8 @@ h2 {
 
 .btn-secondary {
   margin: 10px auto;
+}
+
+#description {
+  text-transform: capitalize;
 }
